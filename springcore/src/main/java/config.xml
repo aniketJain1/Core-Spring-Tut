@@ -10,16 +10,15 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-beans.xsd">
 
-	<bean class="com.springcore.Student" name="student1">
-		<property name="studentId">
-			<value>101</value>
-		</property>
-		<property name="studentName">
-			<value>Aniket</value>
-		</property>
-		<property name="studentAddress">
-			<value>Nagpur</value>
-		</property>
-	</bean>
+	<!-- <bean class="com.springcore.Student" name="student1"> <property name="studentId"> 
+		<value>101</value> </property> <property name="studentName"> <value>Aniket</value> 
+		</property> <property name="studentAddress"> <value>Nagpur</value> </property> 
+		</bean> -->
+
+	<bean class="com.springcore.Student" name="student1"
+		p:studentId="102" p:studentName="Aniket" p:studentAddress="Nagpur" />
+
+	<bean class="com.springcore.Student" name="student2"
+		p:studentId="103" p:studentName="Aniket jain" p:studentAddress="Delhi" />
 
 </beans>
