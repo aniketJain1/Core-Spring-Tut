@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-beans.xsd">
+
+
+	<bean name="refcerti" class="com.springcore.ci.Certi">
+		<constructor-arg value="Java Programming" />
+	</bean>
+
+	<!-- <bean name="refcerti" class="com.springcore.ci.Certi" c:name="Java 
+		Programming"/> -->
+
+
+	<bean class="com.springcore.ci.Person" name="person">
+
+		<!-- <constructor-arg value="Aniket"/> <constructor-arg value="12"/> -->
+
+		<!-- ambiguity problem -->
+		<!-- <constructor-arg value="12"/> <constructor-arg value="Aniket"/> -->
+
+		<!-- solution -->
+		<constructor-arg value="12" type="int" />
+		<constructor-arg value="Aniket" />
+
+		<constructor-arg ref="refcerti" />
+
+		<constructor-arg>
+			<list>
+				<value>Java is a programming language</value>
+				<value>Java is a Platform</value>
+				<value>Java is an Island of Indonasia</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
