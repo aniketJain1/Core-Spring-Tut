@@ -42,5 +42,17 @@ http://www.springframework.org/schema/context/spring-beans.xsd">
 			</list>
 		</constructor-arg>
 	</bean>
+	
+	<bean class="com.springcore.ci.Addition" name="add">
+	<!-- 
+		<constructor-arg value="12" type="int"/>
+		<constructor-arg value="34" type="int"/>
+		
+		<constructor-arg value="12" type="double"/>
+		<constructor-arg value="34" type="double"/>
+	 -->	
+		<constructor-arg value="12" index="1"/>
+		<constructor-arg value="34" index="0"/>
+	</bean>
 
 </beans>
