@@ -11,8 +11,13 @@ public class Test {
 		Samosa samosa = (Samosa) context.getBean("s1");
 		System.out.println(samosa);
 		
-		// registering shutdown hook , using AbstractApplicationContext
+		// registering shutdown hook , used AbstractApplicationContext not ApplicationContext
 		context.registerShutdownHook();
+		
+		System.out.println("+++++++++++++++++++++");
+		
+		Pepsi pepsi = (Pepsi) context.getBean("p1");
+		System.out.println(pepsi);
 	}
 
 }

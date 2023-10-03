@@ -13,5 +13,9 @@ http://www.springframework.org/schema/context/spring-beans.xsd">
 	<bean name="s1" class="com.springcore.lifecycle.Samosa" init-method="init" destroy-method="destroy" >
 		<property name="price" value="10"/>
 	</bean>
+	
+	<bean class="com.springcore.lifecycle.Pepsi" name="p1">
+		<property name="price" value="5" />
+	</bean>
 
 </beans>
