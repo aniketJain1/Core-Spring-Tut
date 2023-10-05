@@ -14,4 +14,10 @@ http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:component-scan base-package="com.springcore.stereotype"/>
+	
+	<util:list list-class="java.util.ArrayList" id="temp"> <!-- vector -->
+		<value>Nagpur</value>
+		<value>Delhi</value>
+		<value>Lkw</value>
+	</util:list>
 </beans>
