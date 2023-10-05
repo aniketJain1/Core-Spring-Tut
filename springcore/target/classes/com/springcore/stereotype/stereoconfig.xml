@@ -20,4 +20,6 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 		<value>Delhi</value>
 		<value>Lkw</value>
 	</util:list>
+	
+	<bean class="com.springcore.stereotype.Teacher" name="teacher" scope="prototype" />
 </beans>

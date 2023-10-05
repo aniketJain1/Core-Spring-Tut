@@ -3,10 +3,12 @@ package com.springcore.stereotype;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 //@Component("obj")
+@Scope("prototype") // by default singleton
 public class Student {
 
 	@Value("Aniket")
