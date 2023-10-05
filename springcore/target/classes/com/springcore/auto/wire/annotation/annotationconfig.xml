@@ -15,10 +15,16 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- for enabling all annotation, but in this case we are enabling for @Autowired annotation -->
 	<context:annotation-config></context:annotation-config>
 	
-	<bean class="com.springcore.auto.wire.annotation.Address" name="address"> <!-- if change any name, won't any change happen Or no need to give name -->
+	<bean class="com.springcore.auto.wire.annotation.Address" name="address1"> <!-- if change any name, won't any change happen Or no need to give name -->
 		<property name="street" value="Temp Street" />
 		<property name="city" value="Nagpur" />
 	</bean>
+	
+	<bean class="com.springcore.auto.wire.annotation.Address" name="address2"> <!-- if change any name, won't any change happen Or no need to give name -->
+		<property name="street" value="Temp Street" />
+		<property name="city" value="Nagpur" />
+	</bean>
+	
 	
 	<bean class="com.springcore.auto.wire.annotation.Emp" name="emp1" /> <!-- byType, ByConstructor -->
 

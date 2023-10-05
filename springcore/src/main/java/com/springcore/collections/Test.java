@@ -16,5 +16,6 @@ public class Test {
 		System.out.println(emp1.getCourses());
 		System.out.println(emp1.getProp());
 		
+		System.out.println(emp1.getPhone().getClass().getName());
 	}
 }
