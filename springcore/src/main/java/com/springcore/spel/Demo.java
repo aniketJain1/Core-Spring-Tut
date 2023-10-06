@@ -22,7 +22,19 @@ public class Demo {
 	@Value("#{ new java.lang.String('Aniket Jain')}")
 	private String name;
 	
+//	@Value("#{ 8>3 }")
+	@Value("#{ 8-6>3 }")
+	private boolean isActive;
 	
+	
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -65,7 +77,8 @@ public class Demo {
 
 	@Override
 	public String toString() {
-		return "Demo [x=" + x + ", y=" + y + ", z=" + z + ", e=" + e + ", name=" + name + "]";
+		return "Demo [x=" + x + ", y=" + y + ", z=" + z + ", e=" + e + ", name=" + name + ", isActive=" + isActive
+				+ "]";
 	}
 
 
