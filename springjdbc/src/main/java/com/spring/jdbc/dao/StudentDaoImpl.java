@@ -1,6 +1,10 @@
 package com.spring.jdbc.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.spring.jdbc.entities.Student;
 
@@ -23,11 +27,34 @@ public class StudentDaoImpl implements StudentDao {
 		return r;
 	}
 
-	// Delete opration
+	// Delete operation
 	public int delete(int studentId) {
 		String query = "delete from student where id=?";
 		int r = this.jdbcTemplate.update(query, studentId);
 		return r;
+	}
+
+	// Selecting single student data
+	public Student getStudent(int studentId) {
+		String query = "select * from student where id=?";
+
+//		RowMapper<Student> rowMapper = new RowMapperImpl();
+//		Student student = this.jdbcTemplate.queryForObject(query, rowMapper, studentId);
+
+		Student student = this.jdbcTemplate.queryForObject(query, new RowMapper() {
+
+			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Student student = new Student();
+				student.setId(rs.getInt(1));
+				student.setName(rs.getString(2));
+				student.setCity(rs.getString(3));
+
+				return student;
+			}
+
+		}, studentId);
+		
+		return student;
 	}
 
 	public JdbcTemplate getJdbcTemplate() {

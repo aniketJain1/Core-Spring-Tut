@@ -47,8 +47,12 @@ public class App {
 //        System.out.println("Data change... " + result);
 
 //        DELETE
-		int result = studentDao.delete(503);
-		System.out.println("Data deleted..." + result);
+//		int result = studentDao.delete(503);
+//		System.out.println("Data deleted..." + result);
+		
+		// Sel
+		Student student = studentDao.getStudent(501);
+		System.out.println(student);
 
 	}
 }
