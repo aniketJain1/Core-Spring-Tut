@@ -7,16 +7,22 @@ import com.spring.jdbc.entities.Student;
 public class StudentDaoImpl implements StudentDao {
 
 	private JdbcTemplate jdbcTemplate;
-	
 
 	public int insert(Student student) {
-		//insert query
+		// insert query
 		String query = "insert into student(id,name,city) values(?,?,?)";
-		int result = this.jdbcTemplate.update(query,student.getId(),student.getName(),student.getCity());
+		int result = this.jdbcTemplate.update(query, student.getId(), student.getName(), student.getCity());
 		return result;
-		
+
 	}
-	
+
+	// updating data
+	public int change(Student student) {
+		String query = "update student set name=?, city=? where id=?";
+		int r = this.jdbcTemplate.update(query, student.getName(), student.getCity(), student.getId());
+		return r;
+	}
+
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
@@ -24,7 +30,5 @@ public class StudentDaoImpl implements StudentDao {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
-
 
 }

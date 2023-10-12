@@ -29,14 +29,22 @@ public class App
         
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
         
-        Student student= new Student();
-        student.setId(503);
-        student.setName("Sumit jain");
-        student.setCity("Delhi");
+//        Student student= new Student();
+//        student.setId(503);
+//        student.setName("Sumit jain");
+//        student.setCity("Delhi");
+//        
+//        int result = studentDao.insert(student);
+//        
+//        System.out.println("student added : "+result);
         
-        int result = studentDao.insert(student);
+        Student student = new Student();
+        student.setId(102);
+        student.setName("Ambani");
+        student.setCity("Bombay");
         
-        System.out.println("student added : "+result);
+        int result = studentDao.change(student);
+        System.out.println("Data change... " + result);
         
     }
 }
