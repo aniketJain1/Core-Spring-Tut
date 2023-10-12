@@ -1,5 +1,7 @@
 package com.spring.jdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,8 +53,17 @@ public class App {
 //		System.out.println("Data deleted..." + result);
 		
 		// Sel
-		Student student = studentDao.getStudent(501);
-		System.out.println(student);
+//		Student student = studentDao.getStudent(501);
+//		System.out.println(student);
+		
+		// Get All Student
+		List<Student> students = studentDao.getAllStudents();
+		students.forEach(e->System.out.println(e)); // using lambda expression
+//		for(Student s : students) {
+//			System.out.println(s);
+//		}
 
+		
+		
 	}
 }

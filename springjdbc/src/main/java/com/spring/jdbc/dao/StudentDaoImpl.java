@@ -2,6 +2,7 @@ package com.spring.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -41,7 +42,7 @@ public class StudentDaoImpl implements StudentDao {
 //		RowMapper<Student> rowMapper = new RowMapperImpl();
 //		Student student = this.jdbcTemplate.queryForObject(query, rowMapper, studentId);
 
-		Student student = this.jdbcTemplate.queryForObject(query, new RowMapper() {
+		Student student = (Student) this.jdbcTemplate.queryForObject(query, new RowMapper() {
 
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Student student = new Student();
@@ -53,8 +54,15 @@ public class StudentDaoImpl implements StudentDao {
 			}
 
 		}, studentId);
-		
+
 		return student;
+	}
+
+	// Selecting multiple student
+	public List<Student> getAllStudents() {
+		String query = "select * from student";
+		List<Student> students = this.jdbcTemplate.query(query, new RowMapperImpl());
+		return students;
 	}
 
 	public JdbcTemplate getJdbcTemplate() {
