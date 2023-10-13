@@ -1,5 +1,7 @@
 package com.spring.orm.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -16,6 +18,33 @@ public class StudentDao {
 		// insert
 		Integer i = (Integer) this.hibernateTemplate.save(student);
 		return i;
+	}
+
+	// get single data
+	public Student getStudent(int studentId) {
+		Student student = this.hibernateTemplate.get(Student.class, studentId);
+		return student;
+
+	}
+
+	// get all student(all student)
+	public List<Student> getallStudents() {
+
+		List<Student> students = this.hibernateTemplate.loadAll(Student.class);
+		return students;
+	}
+
+	// deleting the data
+	@Transactional
+	public void deleteStudent(int studentId) {
+		Student student = this.hibernateTemplate.get(Student.class, studentId);
+		this.hibernateTemplate.delete(student);
+	}
+
+	// updating data...
+	@Transactional
+	public void updateData(Student student) {
+		this.hibernateTemplate.update(student);
 	}
 
 	public HibernateTemplate getHibernateTemplate() {
