@@ -73,6 +73,7 @@ public class StudentDaoImpl implements StudentDao {
 		return jdbcTemplate;
 	}
 
+	
 //	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
