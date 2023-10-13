@@ -3,6 +3,7 @@ package com.spring.jdbc;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -15,8 +16,10 @@ public class App {
 		System.out.println("My program started...");
 
 		// spring jdbc => JdbcTemplate
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
+//		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
 
+		ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
+		
 //        JdbcTemplate template = context.getBean("jdbcTemplate", JdbcTemplate.class);
 
 		// insert query
@@ -59,9 +62,9 @@ public class App {
 		// Get All Student
 		List<Student> students = studentDao.getAllStudents();
 		students.forEach(e->System.out.println(e)); // using lambda expression
-//		for(Student s : students) {
-//			System.out.println(s);
-//		}
+		for(Student s : students) {
+			System.out.println(s);
+		}
 
 		
 		
